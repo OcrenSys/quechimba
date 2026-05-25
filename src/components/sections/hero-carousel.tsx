@@ -6,25 +6,31 @@ import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { featuredEvents } from "@/data/events";
+import { usePrefersReducedMotion } from "@/lib/animations/use-prefers-reduced-motion";
 import { whatsappMessages } from "@/lib/constants";
 import { createWhatsAppUrl } from "@/lib/utils";
 
 export function HeroCarousel() {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
   const activeEvent = featuredEvents[activeIndex];
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % featuredEvents.length);
     }, 5200);
 
     return () => window.clearInterval(interval);
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <div className="relative mx-auto w-full max-w-[25rem] lg:max-w-[30rem]">
       <div className="absolute inset-4 rounded-[2rem] bg-magentaNeon/20 blur-3xl" />
-      <article className="group relative overflow-hidden rounded-xl border border-white/15 bg-blackSoft shadow-neon">
+      <article className="hero-poster-motion group relative overflow-hidden rounded-xl border border-white/15 bg-blackSoft shadow-neon">
         <div className="relative aspect-[4/5] w-full overflow-hidden">
           <Image
             key={activeEvent.image}
@@ -45,9 +51,9 @@ export function HeroCarousel() {
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-          <h2 className="font-display text-3xl font-black uppercase leading-tight text-white">
+          {/* <h2 className="font-display text-3xl font-black uppercase leading-tight text-white">
             {activeEvent.title}
-          </h2>
+          </h2> */}
           <div className="mt-3 flex flex-wrap gap-3 text-sm font-bold text-zinc-200">
             <span className="inline-flex items-center gap-2">
               <CalendarDays size={16} aria-hidden="true" />
@@ -58,7 +64,7 @@ export function HeroCarousel() {
               {activeEvent.time}
             </span>
           </div>
-          <p className="mt-3 text-sm leading-6 text-zinc-300">{activeEvent.description}</p>
+          {/* <p className="mt-3 text-sm leading-6 text-zinc-300">{activeEvent.description}</p> */}
           <Button
             className="mt-5 w-full"
             variant="gold"

@@ -5,9 +5,11 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { galleryItems } from "@/data/gallery";
+import { usePrefersReducedMotion } from "@/lib/animations/use-prefers-reduced-motion";
 import { cn } from "@/lib/utils";
 
 export function GalleryShowcase() {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const showcaseItems = useMemo(() => galleryItems.slice(0, 5), []);
   const [activeIndex, setActiveIndex] = useState(0);
   const activeItem = showcaseItems[activeIndex];
@@ -18,10 +20,18 @@ export function GalleryShowcase() {
 
   return (
     <div
-      className="mb-10 grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch"
+      tabIndex={0}
+      aria-label="Galería destacada. Usa flecha izquierda o derecha para cambiar imagen."
+      className="mb-10 grid gap-5 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch"
       onKeyDown={(event) => {
-        if (event.key === "ArrowRight") goTo(activeIndex + 1);
-        if (event.key === "ArrowLeft") goTo(activeIndex - 1);
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          goTo(activeIndex + 1);
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          goTo(activeIndex - 1);
+        }
       }}
     >
       <div className="flex gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0">
@@ -48,7 +58,7 @@ export function GalleryShowcase() {
           </button>
         ))}
       </div>
-      <article className="group relative overflow-hidden rounded-xl border border-white/10 bg-blackBase shadow-neon">
+      <article className="gallery-showcase-card group relative overflow-hidden rounded-xl border border-white/10 bg-blackBase shadow-neon">
         <div className="relative aspect-[16/10] min-h-[24rem]">
           <Image
             key={activeItem.image}
@@ -56,7 +66,10 @@ export function GalleryShowcase() {
             alt={activeItem.alt}
             fill
             sizes="(max-width: 1024px) 92vw, 62vw"
-            className="animate-gallery-active object-cover opacity-0 transition duration-300 ease-out group-hover:scale-[1.02]"
+            className={cn(
+              "object-cover transition duration-300 ease-out group-hover:scale-[1.02]",
+              prefersReducedMotion ? "opacity-100" : "animate-gallery-active opacity-0",
+            )}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-blackBase via-blackBase/18 to-transparent" />
         </div>
@@ -85,7 +98,7 @@ export function GalleryShowcase() {
             </button>
           </div>
         </div>
-        <div className="absolute bottom-4 right-5 flex gap-1 sm:hidden" aria-label="Progreso de galería">
+        <div className="absolute bottom-4 right-5 flex gap-1" aria-label="Progreso de galería">
           {showcaseItems.map((item, index) => (
             <button
               key={item.title}

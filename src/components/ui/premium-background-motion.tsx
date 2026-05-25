@@ -9,10 +9,10 @@ type PremiumBackgroundMotionProps = {
 };
 
 const variantStyles: Record<BackgroundMotionVariant, string> = {
-  hero: "opacity-100",
-  section: "opacity-75",
-  portfolio: "opacity-90",
-  minimal: "opacity-50",
+  hero: "premium-motion--hero opacity-100",
+  section: "premium-motion--section opacity-75",
+  portfolio: "premium-motion--portfolio opacity-90",
+  minimal: "premium-motion--minimal opacity-50",
 };
 
 const dots = [
@@ -39,6 +39,8 @@ export function PremiumBackgroundMotion({ variant = "section", className }: Prem
       <div className="premium-motion__glow premium-motion__glow--two" />
       <div className="premium-motion__grid" />
       <div className="premium-motion__scan" />
+      <div className="premium-motion__beam premium-motion__beam--one" />
+      <div className="premium-motion__beam premium-motion__beam--two" />
       <div className="premium-motion__dots">
         {dots.map(([left, top], index) => (
           <span

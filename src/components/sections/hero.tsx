@@ -20,8 +20,8 @@ export function Hero() {
     <Section id="inicio" className="relative isolate overflow-hidden pb-14 pt-36 sm:pt-40">
       <div className="club-grid absolute inset-0 -z-20" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_15%,rgba(236,0,140,0.24),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(0,163,255,0.2),transparent_25%),linear-gradient(180deg,rgba(5,5,5,0.18),#050505_88%)]" />
-      <PremiumBackgroundMotion variant="hero" className="-z-10" />
-      <Container className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+      <PremiumBackgroundMotion variant="hero" className="z-0" />
+      <Container className="relative z-10 grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="order-2 lg:order-1">
           <Badge className="border-gold/50 bg-gold/10 text-gold">
             <Music2 size={14} aria-hidden="true" />
@@ -57,7 +57,7 @@ export function Hero() {
           </div>
         </div>
         <div className="order-1 lg:order-2">
-          <ParallaxLayer offset={14}>
+          <ParallaxLayer offset={22}>
             <HeroCarousel />
           </ParallaxLayer>
         </div>

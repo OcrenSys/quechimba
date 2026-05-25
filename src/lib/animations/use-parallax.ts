@@ -1,6 +1,7 @@
 "use client";
 
 import { type CSSProperties, useEffect, useState } from "react";
+import { usePrefersReducedMotion } from "@/lib/animations/use-prefers-reduced-motion";
 
 type UseParallaxOptions = {
   offset?: number;
@@ -8,12 +9,11 @@ type UseParallaxOptions = {
 };
 
 export function useParallax({ offset = 12, disabled = false }: UseParallaxOptions = {}): CSSProperties {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [translateY, setTranslateY] = useState(0);
 
   useEffect(() => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    if (disabled || reduceMotion.matches) {
+    if (disabled || prefersReducedMotion) {
       return;
     }
 
@@ -22,8 +22,8 @@ export function useParallax({ offset = 12, disabled = false }: UseParallaxOption
     const update = () => {
       window.cancelAnimationFrame(frame);
       frame = window.requestAnimationFrame(() => {
-        const progress = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1);
-        setTranslateY((progress - 0.5) * offset);
+        const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 1.35, 1), 1);
+        setTranslateY(progress * -offset);
       });
     };
 
@@ -36,9 +36,10 @@ export function useParallax({ offset = 12, disabled = false }: UseParallaxOption
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [disabled, offset]);
+  }, [disabled, offset, prefersReducedMotion]);
 
   return {
-    transform: `translate3d(0, ${(disabled ? 0 : translateY).toFixed(2)}px, 0)`,
+    transform: `translate3d(0, ${(disabled || prefersReducedMotion ? 0 : translateY).toFixed(2)}px, 0)`,
+    willChange: prefersReducedMotion ? undefined : "transform",
   };
 }
