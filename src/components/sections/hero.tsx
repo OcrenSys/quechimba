@@ -2,6 +2,8 @@ import { CalendarDays, Gift, MessageCircle, Music2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { ParallaxLayer } from "@/components/ui/parallax-layer";
+import { PremiumBackgroundMotion } from "@/components/ui/premium-background-motion";
 import { Section } from "@/components/ui/section";
 import { HeroCarousel } from "@/components/sections/hero-carousel";
 import { whatsappMessages } from "@/lib/constants";
@@ -18,6 +20,7 @@ export function Hero() {
     <Section id="inicio" className="relative isolate overflow-hidden pb-14 pt-36 sm:pt-40">
       <div className="club-grid absolute inset-0 -z-20" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_15%,rgba(236,0,140,0.24),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(0,163,255,0.2),transparent_25%),linear-gradient(180deg,rgba(5,5,5,0.18),#050505_88%)]" />
+      <PremiumBackgroundMotion variant="hero" className="-z-10" />
       <Container className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="order-2 lg:order-1">
           <Badge className="border-gold/50 bg-gold/10 text-gold">
@@ -54,7 +57,9 @@ export function Hero() {
           </div>
         </div>
         <div className="order-1 lg:order-2">
-          <HeroCarousel />
+          <ParallaxLayer offset={14}>
+            <HeroCarousel />
+          </ParallaxLayer>
         </div>
       </Container>
     </Section>

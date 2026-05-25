@@ -2,6 +2,7 @@ import { Beer, CalendarDays, Mic2, Music2, Trophy, Utensils } from "lucide-react
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
+import { PremiumBackgroundMotion } from "@/components/ui/premium-background-motion";
 import { Section } from "@/components/ui/section";
 import { weeklyExperience } from "@/data/weekly-experience";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,7 @@ export function WeeklyExperienceSection() {
   return (
     <Section id="semana" ariaLabelledby="semana-title" className="relative overflow-hidden bg-blackBase">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(245,197,66,0.08),transparent_35%,rgba(0,163,255,0.08))]" />
+      <PremiumBackgroundMotion variant="minimal" />
       <Container className="relative">
         <div className="mb-10 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
           <div>

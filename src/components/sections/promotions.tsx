@@ -2,6 +2,7 @@ import { Beer, Martini, MessageCircle, Wine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
+import { PremiumBackgroundMotion } from "@/components/ui/premium-background-motion";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { promotions } from "@/data/promotions";
@@ -18,8 +19,9 @@ const icons = [Beer, Martini, Beer, Beer, Wine, Martini, Wine];
 
 export function PromotionsSection() {
   return (
-    <Section id="promociones" ariaLabelledby="promociones-title" className="bg-blackSoft/55">
-      <Container>
+    <Section id="promociones" ariaLabelledby="promociones-title" className="relative overflow-hidden bg-blackSoft/55">
+      <PremiumBackgroundMotion variant="section" />
+      <Container className="relative">
         <SectionHeading
           id="promociones-title"
           eyebrow="Promociones activas"

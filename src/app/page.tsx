@@ -21,11 +21,11 @@ export default function Home() {
         <Hero />
         <EventsSection />
         <WeeklyExperienceSection />
-        <PromotionsSection />
+        {/* <PromotionsSection /> */}
         <BirthdayPackagesSection />
-        <MenuSection />
+        {/* <MenuSection /> */}
         <SportsSection />
-        <SocialProofSection />
+        {/* <SocialProofSection /> */}
         <GallerySection />
         <LocationSection />
         <FinalCtaSection />

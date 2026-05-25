@@ -1,21 +1,25 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
+import { PremiumBackgroundMotion } from "@/components/ui/premium-background-motion";
 import { Section } from "@/components/ui/section";
+import { GalleryShowcase } from "@/components/sections/gallery-showcase";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { galleryItems } from "@/data/gallery";
 import { cn } from "@/lib/utils";
 
 export function GallerySection() {
   return (
-    <Section id="galeria" ariaLabelledby="galeria-title" className="bg-blackSoft/55">
-      <Container>
+    <Section id="galeria" ariaLabelledby="galeria-title" className="relative overflow-hidden bg-blackSoft/55">
+      <PremiumBackgroundMotion variant="portfolio" />
+      <Container className="relative">
         <SectionHeading
           id="galeria-title"
           eyebrow="Galería"
           title="Así se mira la noche cuando está encendida"
           description="Posters, comida y momentos reales listos para convertirse en la galería oficial del negocio."
         />
+        <GalleryShowcase />
         <div className="columns-1 gap-5 space-y-5 md:columns-2 lg:columns-3">
           {galleryItems.map((item) => (
             <article

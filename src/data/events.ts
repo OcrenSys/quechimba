@@ -81,16 +81,16 @@ export const events: Event[] = [
     featured: false,
     alt: "Poster de Bad Boy Sábado de Teteo en Que Chimba Parce",
   },
-  {
-    title: "Teteo",
-    date: "Sábado",
-    time: "04:00 PM",
-    image: "/images/events/teteo.webp",
-    category: "Teteo",
-    description: "Rumba urbana, promociones, cabina prendida y la energía que pide el fin de semana.",
-    featured: false,
-    alt: "Poster de Sábado de Teteo en Que Chimba Parce",
-  },
+  // {
+  //   title: "Teteo",
+  //   date: "Sábado",
+  //   time: "04:00 PM",
+  //   image: "/images/events/teteo.webp",
+  //   category: "Teteo",
+  //   description: "Rumba urbana, promociones, cabina prendida y la energía que pide el fin de semana.",
+  //   featured: false,
+  //   alt: "Poster de Sábado de Teteo en Que Chimba Parce",
+  // },
 ];
 
 export const featuredEvents = [

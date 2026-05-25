@@ -39,11 +39,11 @@ export function BirthdayPackagesSection() {
             {premiumPackage ? (
               <BirthdayCard pkg={premiumPackage} className="order-first border-gold/70 bg-gold/10 shadow-gold" />
             ) : null}
-            <div className="grid gap-5 md:grid-cols-3">
+            {/* <div className="grid gap-5 md:grid-cols-3">
               {standardPackages.map((pkg) => (
                 <BirthdayCard key={pkg.name} pkg={pkg} compact />
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>

@@ -3,6 +3,7 @@ import { Clock, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { PremiumBackgroundMotion } from "@/components/ui/premium-background-motion";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { events } from "@/data/events";
@@ -11,8 +12,9 @@ import { createWhatsAppUrl } from "@/lib/utils";
 
 export function EventsSection() {
   return (
-    <Section id="eventos" ariaLabelledby="eventos-title" className="bg-blackBase">
-      <Container>
+    <Section id="eventos" ariaLabelledby="eventos-title" className="relative overflow-hidden bg-blackBase">
+      <PremiumBackgroundMotion variant="minimal" />
+      <Container className="relative">
         <SectionHeading
           id="eventos-title"
           eyebrow="Próximos eventos"
