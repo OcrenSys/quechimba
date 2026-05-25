@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="120" viewBox="0 0 360 120" role="img" aria-labelledby="title desc">
+  <title id="title">Que Chimba Parce</title>
+  <desc id="desc">Logotipo tipográfico de Que Chimba Parce con aro de colores.</desc>
+  <defs>
+    <linearGradient id="ring" x1="34" y1="20" x2="326" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5C542"/>
+      <stop offset="0.46" stop-color="#EC008C"/>
+      <stop offset="1" stop-color="#00A3FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="120" fill="none"/>
+  <path d="M64 94A48 48 0 1 1 103 18" fill="none" stroke="url(#ring)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M296 26a48 48 0 0 1-39 76" fill="none" stroke="url(#ring)" stroke-width="5" stroke-linecap="round"/>
+  <text x="180" y="54" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="900" letter-spacing="2">QUE CHIMBA</text>
+  <text x="180" y="86" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="8">PARCE</text>
+</svg>

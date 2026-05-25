@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Que Chimba Parce</title>
+  <desc id="desc">Imagen social demo con luces neon para Que Chimba Parce.</desc>
+  <defs>
+    <radialGradient id="magenta" cx="25%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#EC008C" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blue" cx="82%" cy="14%" r="52%">
+      <stop offset="0%" stop-color="#00A3FF" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5C542"/>
+      <stop offset="52%" stop-color="#EC008C"/>
+      <stop offset="100%" stop-color="#00A3FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#050505"/>
+  <rect width="1200" height="630" fill="url(#magenta)"/>
+  <rect width="1200" height="630" fill="url(#blue)"/>
+  <path d="M90 520 C260 360 360 590 540 405 C730 212 825 360 1110 120" fill="none" stroke="url(#gold)" stroke-width="8" opacity="0.55"/>
+  <rect x="88" y="88" width="1024" height="454" rx="28" fill="#111827" opacity="0.68" stroke="#ffffff" stroke-opacity="0.14"/>
+  <text x="120" y="208" fill="#F5C542" font-family="Arial, sans-serif" font-size="30" font-weight="900">DISCOTECA Y CLUB NOCTURNO</text>
+  <text x="120" y="332" fill="#FFFFFF" font-family="Arial Black, Arial, sans-serif" font-size="92" font-weight="900">QUE CHIMBA</text>
+  <text x="120" y="432" fill="#00A3FF" font-family="Arial Black, Arial, sans-serif" font-size="92" font-weight="900">PARCE</text>
+  <text x="124" y="492" fill="#A1A1AA" font-family="Arial, sans-serif" font-size="28" font-weight="700">Eventos, promociones, cumpleaños y reservas</text>
+</svg>
